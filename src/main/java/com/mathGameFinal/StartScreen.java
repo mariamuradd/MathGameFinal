@@ -1,7 +1,9 @@
 package com.mathGameFinal;
+// INSERT IMAGE on start screen 
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+
 
 public class StartScreen extends PApplet {
 
@@ -73,13 +75,13 @@ public class StartScreen extends PApplet {
     
         // draws decorative shapes around the title
         main.fill(255, 150, 200);
-        main.ellipse(main.width / 2 - 120, main.height / 2 - 100, 15, 15);
-        main.ellipse(main.width / 2 + 120, main.height / 2 - 100, 15, 15);
-        main.ellipse(main.width / 2 - 60, main.height / 2 - 150, 10, 10);
-        main.ellipse(main.width / 2 + 60, main.height / 2 - 150, 10, 10);
+        main.ellipse(main.width / 2 - 150, main.height / 2 - 130, 15, 15);
+        main.ellipse(main.width / 2 + 150, main.height / 2 - 130, 15, 15);
+        main.ellipse(main.width / 2 - 90, main.height / 2 - 180, 10, 10);
+        main.ellipse(main.width / 2 + 90, main.height / 2 - 180, 10, 10);
         
-        main.triangle(main.width / 2 - 100, main.height / 2 - 80, main.width / 2 - 90, main.height / 2 - 70, main.width / 2 - 110, main.height / 2 - 70);
-        main.triangle(main.width / 2 + 100, main.height / 2 - 80, main.width / 2 + 110, main.height / 2 - 70, main.width / 2 + 90, main.height / 2 - 70);
+        main.triangle(main.width / 2 - 100, main.height / 2 - 60, main.width / 2 - 90, main.height / 2 - 50, main.width / 2 - 110, main.height / 2 - 50);
+        main.triangle(main.width / 2 + 100, main.height / 2 - 60, main.width / 2 + 110, main.height / 2 - 50, main.width / 2 + 90, main.height / 2 - 50);
     
         // draws start button rectangle
         main.fill(100);

@@ -47,4 +47,11 @@ public class Game {
         }
     }
 
+    // this handles all key inputs
+    public void keyPressed(char key) { 
+       if (gameState == 1){
+        gameScreen.keyPressed();
+       }
+    }
+
 }

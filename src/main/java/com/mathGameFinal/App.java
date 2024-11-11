@@ -9,9 +9,6 @@ public class App extends PApplet {
     int buttonX, buttonY, buttonWidth, buttonHeight; 
 
     public static void main(String[] args) {
-        String[] processingArgs = {"App"};
-        App mySketch = new App();
-        PApplet.runSketch(processingArgs, mySketch);
         PApplet.main("com.mathGameFinal.App");
     }
 
@@ -44,7 +41,8 @@ public class App extends PApplet {
          game.handleMouseClick(mouseX, mouseY);
     }
 
-    //need to write keypressed 
-    //in that method, call game.keypressed u need pass key
+    public void keyPressed(){
+        game.keyPressed(key);
+    }
 
 }

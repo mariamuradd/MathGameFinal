@@ -54,11 +54,7 @@ public class GameScreen  {
 
             main.textSize(20);
             main.text("Score: " + score, main.width / 2, main.height / 2 + 50);
-
-            if (waitingForAnswer) {
-                main.textSize(20);
-                main.text("Your answer: " + userAnswer, main.width / 2, main.height / 2);
-            }
+            main.text("Your answer: " + userAnswer, main.width / 2, main.height / 2);
         }
     }
 
@@ -77,6 +73,9 @@ public class GameScreen  {
 
     // checks if user's answer is correct when they input the answer
     private void checkAnswer() {
+        if (userAnswer.isEmpty()) return;
+
+
         if (Integer.parseInt(userAnswer) == correctAnswer) {
             score++;
             waitingForAnswer = false;
