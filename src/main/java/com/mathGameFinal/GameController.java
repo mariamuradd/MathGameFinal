@@ -1,33 +1,32 @@
+/*
+ * Name: Maria Murad
+ * Class Name: GameController
+ * Date: November 26th, 2024
+ * Description: This abstract class serves as a base for all game screens, providing a common structure and methods for rendering content, handling key inputs, and processing mouse click events.
+ */
 package com.mathGameFinal;
-// NOT COMPLETE YET BUT controls all abstraction and need to make sure that math questions asked include subtraction, division & multiplication
-// want a timer as well
 
-public class GameController {
-    protected int score;
-    protected QuestionLinkedList questionList;
-    protected QuestionNode currentQuestion;
+import processing.core.PApplet;
+import processing.core.PConstants;
 
-    public GameController() {
-        this.score = 0;
-        this.questionList = new QuestionLinkedList();
-        this.currentQuestion = null;
+// abstract class to define a common structure for all screens
+public abstract class GameController {
+    protected PApplet main;
+
+    // constructor
+    public GameController(PApplet main_) {
+        this.main = main_;
     }
 
-   // public abstract void askQuestion();
-    //public abstract void evaluateAnswer(int userAnswer);
-    //public abstract void generateQuestion();
+    // abstract methods that subclasses need to implement
+    public abstract void display(); 
 
-    public void startGame() {
-        score = 0;
-        questionList = new QuestionLinkedList();
-        // have to write more of the initialization code
+    // optional method for handling key inputs
+    public void keyPressed() {
     }
 
-    public void nextQuestion() {
-        currentQuestion = currentQuestion.getNext();
-    }
-
-    public void endGame() {
-        System.out.println("Game Over! Your final score is: " + score);
+    // optional method for handling mouse click events
+    public boolean isButtonClicked(int x, int y) {
+        return false;
     }
 }

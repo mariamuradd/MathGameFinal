@@ -1,14 +1,19 @@
+/*
+ * Name: Maria Murad
+ * Class Name: EndScreen
+ * Date: November 26th, 2024
+ * Description: This class displays the game over screen with the final score and a restart button.
+ */
 package com.mathGameFinal;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
 
-public class EndScreen  {
+public class EndScreen extends GameController {
     private int finalScore;
-    PApplet main;
 
      EndScreen(PApplet main_){
-        main = main_;
+        super(main_);
      }
     // sets the final score to be displayed
     public void setFinalScore(int score) {
@@ -17,7 +22,7 @@ public class EndScreen  {
 
     // display the end screen with the final score and a restart button
     public void display() {
-        main.background(255); // Clear the screen
+        main.background(255); 
 
         main.fill(0); // Black color for text
         main.textSize(32);
@@ -34,7 +39,7 @@ public class EndScreen  {
     }
 
     // checks if restart button is clicked + its coordinates
-    public boolean isRestartButtonClicked(int x, int y) {
+    public boolean isButtonClicked(int x, int y) {
         int buttonX1 = main.width / 2 - 75;
         int buttonY1 = main.height / 2 + 50;
         int buttonX2 = main.width / 2 + 75;

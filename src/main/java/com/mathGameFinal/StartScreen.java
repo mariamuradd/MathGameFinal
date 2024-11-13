@@ -1,48 +1,38 @@
-package com.mathGameFinal;
-// INSERT IMAGE on start screen 
+/*
+ * Name: Maria Murad
+ * Class Name: StartScreen
+ * Date: November 26th, 2024
+ * Description: This class represents the start screen of the math game, displaying the title, decorative shapes, a start button, and an optional image.
+ */
+package com.mathGameFinal; 
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PImage;
 
 
-public class StartScreen extends PApplet {
+public class StartScreen extends GameController {
 
-    // Coordinates for the Start button
+    // coordinates for the Start button
     int buttonX, buttonY, buttonWidth, buttonHeight;
-    PApplet main;
+    PImage startImage;
 
     public StartScreen(PApplet main_) {
-        // Set the position and size of the Start button
+        // sets the position and size of the Start button
+        super(main_);       
         buttonX = 300; 
         buttonY = 400;
         buttonWidth = 200;
         buttonHeight = 50;
-        main = main_;
     }
 
-    // Display the start screen, including the title and start button
-    public void display() {
-     
-            
-            main.textAlign(3, 3);
-            main.fill(0, 102, 204); // Blue color for the title
-            main.textSize(32);
-            main.text("Maria Masters Math", main.width / 2, main.height / 2 - 100); // Title
-    
-            main.fill(100); // light grey color for button rectangle
-            main.rect(buttonX, buttonY, buttonWidth, buttonHeight);
-    
-            main.fill(255); // white color for start text
-            main.textSize(20);
-            // code : add bold
-            text("Start", main.width / 2, main.height / 2);
-    
-       
+    public void setup(){
+        startImage = main.loadImage("src/main/resources/cartoonPic.png");
+        
     }
-
 
       // display start screen
-      public void showStartScreen() {
+      public void display() {
         main.textAlign(PConstants.CENTER, PConstants.CENTER);
         
         // set initial properties for title color and text
@@ -84,17 +74,21 @@ public class StartScreen extends PApplet {
         main.triangle(main.width / 2 + 100, main.height / 2 - 60, main.width / 2 + 110, main.height / 2 - 50, main.width / 2 + 90, main.height / 2 - 50);
     
         // draws start button rectangle
-        main.fill(100);
+        main.fill(75, 0, 130); // dark purple
         main.rect(buttonX, buttonY, buttonWidth, buttonHeight);
     
         main.fill(255);
         main.textSize(20);
         main.text("Start", buttonX + buttonWidth / 2, buttonY + buttonHeight / 2);
+        if (startImage != null) {
+        main.imageMode(PConstants.CENTER);
+        main.image(startImage, 150 , 600);
+        }
     }
 
 
     // checks is button is clicked so return true when it is inside the button's bounds
-    public boolean isStartButtonClicked(int x, int y) {
+    public boolean isButtonClicked(int x, int y) {
         try {
              System.out.println("klicked");
             return x > buttonX && x < buttonX + buttonWidth && y > buttonY && y < buttonY + buttonHeight;

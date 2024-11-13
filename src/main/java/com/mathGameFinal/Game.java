@@ -1,3 +1,9 @@
+/*
+ * Name: Maria Murad
+ * Class Name: Game
+ * Date: November 26th, 2024
+ * Description: This class manages the game’s flow, handling screen transitions, user input, and game state updates (start, game, end).
+ */
 package com.mathGameFinal;
 
 import processing.core.PApplet;
@@ -17,11 +23,15 @@ public class Game {
         gameState = 0;
     }
 
+    public void setup(){
+         startScreen.setup();
+    }
+
     // method to display the appropriate screen based on the current game state
     public void display() {
         switch (gameState) {
             case 0: // start screen showing
-                startScreen.showStartScreen();
+                startScreen.display();
                 break;
             case 1: // game screen showing 
                 gameScreen.display();
@@ -38,11 +48,11 @@ public class Game {
 
     // method handles mouse clicks so when in start screen, click start button & when in end screen, check for restart button
     public void handleMouseClick(int mouseX, int mouseY) {
-        if (gameState == 0 && startScreen.isStartButtonClicked(mouseX, mouseY)) {
+        if (gameState == 0 && startScreen.isButtonClicked(mouseX, mouseY)) {
             gameState = 1; 
             gameScreen.startNewGame(); // initializes game screen 
         } 
-        else if (gameState == 2 && endScreen.isRestartButtonClicked(mouseX, mouseY)) {
+        else if (gameState == 2 && endScreen.isButtonClicked(mouseX, mouseY)) {
             gameState = 0; // resets to start
         }
     }
@@ -53,5 +63,4 @@ public class Game {
         gameScreen.keyPressed();
        }
     }
-
 }
