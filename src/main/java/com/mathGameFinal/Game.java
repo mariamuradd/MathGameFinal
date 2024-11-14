@@ -9,10 +9,10 @@ package com.mathGameFinal;
 import processing.core.PApplet;
 
 public class Game {
-    StartScreen startScreen;
-    GameScreen gameScreen;
-    EndScreen endScreen;
-    int gameState; // 0 = start, 1 = game, 2 = end
+    private GameController startScreen;
+    private GameController gameScreen;
+    private GameController endScreen;
+    private int gameState; // 0 = start, 1 = game, 2 = end
     PApplet main;
 
     public Game(PApplet main_) {

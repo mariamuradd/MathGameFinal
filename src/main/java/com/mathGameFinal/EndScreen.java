@@ -16,13 +16,14 @@ public class EndScreen extends GameController {
         super(main_);
      }
     // sets the final score to be displayed
+    @Override
     public void setFinalScore(int score) {
         this.finalScore = score;
     }
 
     // display the end screen with the final score and a restart button
     public void display() {
-        main.background(255); 
+        main.background(255, 200, 255); 
 
         main.fill(0); // Black color for text
         main.textSize(32);
@@ -32,13 +33,15 @@ public class EndScreen extends GameController {
 
         // draw Restart Button & properties
         main.fill(0, 255, 0);
-        main.rect(main.width / 2 - 75, main.height / 2 + 50, 150, 50); 
+        main.rect(main.width / 2 - 100, main.height / 2 + 50, 220, 70); 
         main.fill(0);
-        main.textSize(20);
-        main.text("Restart", main.width / 2, main.height / 2 + 75);
+        main.textSize(30);
+        
+        main.text("Restart", (main.width/2-100)+220/2, (main.height/2+50)+70/2);
     }
 
     // checks if restart button is clicked + its coordinates
+    @Override
     public boolean isButtonClicked(int x, int y) {
         int buttonX1 = main.width / 2 - 75;
         int buttonY1 = main.height / 2 + 50;

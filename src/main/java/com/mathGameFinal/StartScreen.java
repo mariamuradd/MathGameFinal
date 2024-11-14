@@ -12,19 +12,20 @@ import processing.core.PImage;
 
 public class StartScreen extends GameController {
 
-    // coordinates for the start button
-    int buttonX, buttonY, buttonWidth, buttonHeight;
-    PImage startImage;
+    // coordinates for the start button & encapsulation
+    private int buttonX, buttonY, buttonWidth, buttonHeight;
+    private PImage startImage;
 
     public StartScreen(PApplet main_) {
         //sets the position and size of the Start button
         super(main_);
         buttonX = 300;
         buttonY = 400;
-        buttonWidth = 200;
-        buttonHeight = 50;
+        buttonWidth = 220;
+        buttonHeight = 70;
     }
 
+    @Override
     public void setup() {
         startImage = main.loadImage("src/main/resources/cartoonPic.png");
     }
@@ -113,6 +114,7 @@ public class StartScreen extends GameController {
     }
 
     //checks is button is clicked so return true when it is inside the button's bounds
+    @Override
     public boolean isButtonClicked(int x, int y) {
         try {
             return x > buttonX && x < buttonX + buttonWidth && y > buttonY && y < buttonY + buttonHeight;

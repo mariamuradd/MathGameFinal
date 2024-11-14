@@ -15,7 +15,7 @@ public class QuestionLinkedList {
         tail = null;
     }
 
-    // Insert a question at the end of the list
+    // insert a question at the end of the list
     public void insertQuestion(QuestionNode newNode) {
         if (head == null) {
             head = newNode;
@@ -26,22 +26,22 @@ public class QuestionLinkedList {
         }
     }
 
-    // Insert at the tail (same as insertQuestion, but separated for clarity)
+    // this will insert at the tail - same as insertQuestion
     public void insertAtTail(QuestionNode newNode) {
         insertQuestion(newNode);
     }
 
-    // Remove the first question in the list
+    // removes the first question in this list Remove the first question in the list
     public void removeQuestion() {
         if (head != null) {
             head = head.getNext();
-            if (head == null) {  // If the list becomes empty
+            if (head == null) {  // will equal to null if the list becomes empty
                 tail = null;
             }
         }
     }
 
-    // Find a question by its string representation
+    // this will find a question by its string representation
     public QuestionNode findQuestion(String question) {
         QuestionNode current = head;
         while (current != null) {
@@ -50,10 +50,10 @@ public class QuestionLinkedList {
             }
             current = current.getNext();
         }
-        return null;  // Returns null if question is not found
+        return null;  // will return null if the question is not found
     }
 
-    // Print all questions in the linked list
+    // this will print all the questions in the linked list
     public void printQuestions() {
         QuestionNode current = head;
         while (current != null) {
@@ -62,12 +62,12 @@ public class QuestionLinkedList {
         }
     }
 
-    // Get the tail node
+    // gets the tail node
     public QuestionNode getTail() {
         return tail;
     }
 
-    // Check if the list is empty
+    // checks if the list is empty
     public boolean isEmpty() {
         return head == null;
     }

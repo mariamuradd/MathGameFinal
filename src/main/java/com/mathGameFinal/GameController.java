@@ -29,4 +29,21 @@ public abstract class GameController {
     public boolean isButtonClicked(int x, int y) {
         return false;
     }
+
+    public boolean isGameOver(){
+        return false;
+    }
+
+    public void setFinalScore(int score){
+
+    }
+    public void setup(){
+
+    }
+    public int getScore(){
+        return 0;
+    }
+    public void startNewGame(){
+        
+    }
 }

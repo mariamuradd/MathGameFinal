@@ -12,9 +12,9 @@
  
  public class GameScreen extends GameController {
  
-     int bgColorR = 255; // red
-     int bgColorG = 255; // green
-     int bgColorB = 255; // blue
+     private int bgColorR = 255; // red
+     private int bgColorG = 255; // green
+     private int bgColorB = 255; // blue
      
      private int score;
      private boolean gameOver;
@@ -43,6 +43,7 @@
      }
  
      // resets the game
+     @Override
      public void startNewGame() {
          score = 0;
          gameOver = false;
@@ -75,6 +76,7 @@
      }
  
      // handles key presses when entering the answer
+     @Override
      public void keyPressed() {
          if (gameOver) return;
  
@@ -121,11 +123,13 @@
      }
  
      // checks if game is over
+     @Override
      public boolean isGameOver() {
          return gameOver;
      }
  
      // gets the current score of the user
+     @Override
      public int getScore() {
          return score;
      }
