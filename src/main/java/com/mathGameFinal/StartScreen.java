@@ -2,12 +2,13 @@
  * Name: Maria Murad
  * Class Name: StartScreen
  * Date: November 26th, 2024
- * Description: This class represents the start screen of the math game, displaying the title, decorative shapes, a start button, and an optional image.
+ * Description: This class manages the visual elements and functionality of the start screen, including animations, a start button, and a dynamically styled title for the math game.
  */
 package com.mathGameFinal;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PFont;
 import processing.core.PImage;
 
 public class StartScreen extends GameController {
@@ -17,7 +18,7 @@ public class StartScreen extends GameController {
     private PImage startImage;
 
     public StartScreen(PApplet main_) {
-        //sets the position and size of the Start button
+        // sets the position and size of the Start button
         super(main_);
         buttonX = 300;
         buttonY = 400;
@@ -56,7 +57,7 @@ public class StartScreen extends GameController {
             float offsetX = startX + i * 22 + PApplet.sin(i * 0.5f + main.millis() * 0.002f) * 5;
             float yVariation = PApplet.sin(i * 0.3f + main.millis() * 0.004f) * 3;
 
-            main.fill(0, 102 + (int)(main.random(-10, 10)), 204 + (int)(main.random(-10, 10)));
+            main.fill(0, 102 + (int) (main.random(-10, 10)), 204 + (int) (main.random(-10, 10)));
             main.text(letter, offsetX, offsetY + yVariation);
         }
 
@@ -74,22 +75,25 @@ public class StartScreen extends GameController {
         main.fill(75, 0, 130);
         main.rect(buttonX, buttonY, buttonWidth, buttonHeight);
 
-        
         main.fill(255, 150, 200);
 
-    // adjust text size to fit 
-    float maxTextSize = 30;
-    main.textSize(maxTextSize);
-
-    // calculate the width of the text 
-    while (main.textWidth("Start") > buttonWidth - 10) {
-        maxTextSize -= 1;
+        // adjust text size to fit
+        float maxTextSize = 30;
         main.textSize(maxTextSize);
-    }
 
-    // draws the start text centered within the button
-    main.text("Start", buttonX + buttonWidth / 2, buttonY + buttonHeight / 2);
-        
+        // calculate the width of the text
+        while (main.textWidth("Start") > buttonWidth - 10) {
+            maxTextSize -= 1;
+            main.textSize(maxTextSize);
+        }
+
+        // draws the start text centered within the button
+        main.pushStyle();
+        PFont thickFont = main.createFont("Arial Black", 26);
+        main.textFont(thickFont);
+        main.text("Start", buttonX + buttonWidth / 2, buttonY + buttonHeight / 2);
+        main.popStyle();
+
         // this will display the image
         if (startImage != null) {
             main.imageMode(PConstants.CENTER);
@@ -108,12 +112,13 @@ public class StartScreen extends GameController {
     private void drawAnimatedTriangle(float x, float y, float size) {
         float xOffset = PApplet.sin(main.millis() * 0.002f + x * 0.1f) * 3;
         float yOffset = PApplet.cos(main.millis() * 0.002f + y * 0.1f) * 3;
-        
-        main.fill(255, 150 + (int)(main.random(-20, 20)), 200 + (int)(main.random(-20, 20)));
-        main.triangle(x + xOffset, y + yOffset, x + size / 2 + xOffset, y - size + yOffset, x - size / 2 + xOffset, y - size + yOffset);
+
+        main.fill(255, 150 + (int) (main.random(-20, 20)), 200 + (int) (main.random(-20, 20)));
+        main.triangle(x + xOffset, y + yOffset, x + size / 2 + xOffset, y - size + yOffset, x - size / 2 + xOffset,
+                y - size + yOffset);
     }
 
-    //checks is button is clicked so return true when it is inside the button's bounds
+    // checks is button is clicked so return true when it is inside the button's bounds
     @Override
     public boolean isButtonClicked(int x, int y) {
         try {

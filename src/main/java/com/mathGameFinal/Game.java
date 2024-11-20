@@ -23,8 +23,11 @@ public class Game {
         gameState = 0;
     }
 
+    // setting up
     public void setup(){
          startScreen.setup();
+         gameScreen.setup();
+         endScreen.setup();
     }
 
     // method to display the appropriate screen based on the current game state

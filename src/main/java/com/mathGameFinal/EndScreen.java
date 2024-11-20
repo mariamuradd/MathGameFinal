@@ -8,13 +8,23 @@ package com.mathGameFinal;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PFont;
+import processing.core.PImage;
 
 public class EndScreen extends GameController {
+
     private int finalScore;
+    private PImage startImage;
 
      EndScreen(PApplet main_){
         super(main_);
      }
+
+     @Override
+    public void setup() {
+        startImage = main.loadImage("src/main/resources/ClapClap.png");
+    }
+
     // sets the final score to be displayed
     @Override
     public void setFinalScore(int score) {
@@ -23,10 +33,13 @@ public class EndScreen extends GameController {
 
     // display the end screen with the final score and a restart button
     public void display() {
+        main.pushStyle();
         main.background(255, 200, 255); 
 
-        main.fill(0); // Black color for text
+        main.fill(0); // black color for text
         main.textSize(32);
+        PFont thickFont = main.createFont("Arial Black", 26); 
+        main.textFont(thickFont);
         main.textAlign(PConstants.CENTER, PConstants.CENTER);
         main.text("Game Over!", main.width / 2, main.height / 2 - 50);
         main.text("Final Score: " + finalScore, main.width / 2, main.height / 2);
@@ -36,8 +49,14 @@ public class EndScreen extends GameController {
         main.rect(main.width / 2 - 100, main.height / 2 + 50, 220, 70); 
         main.fill(0);
         main.textSize(30);
-        
         main.text("Restart", (main.width/2-100)+220/2, (main.height/2+50)+70/2);
+        main.popStyle();
+
+        // this will display the image
+        if (startImage != null) {
+            main.imageMode(PConstants.CENTER);
+            main.image(startImage, 170, 640);
+        }
     }
 
     // checks if restart button is clicked + its coordinates

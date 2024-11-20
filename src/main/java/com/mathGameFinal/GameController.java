@@ -30,19 +30,27 @@ public abstract class GameController {
         return false;
     }
 
+    // optional method to check if game is over
     public boolean isGameOver(){
         return false;
     }
 
+    // optional method to set final score
     public void setFinalScore(int score){
 
     }
+
+    // optional setup method
     public void setup(){
 
     }
+
+    // otpional method to get current score
     public int getScore(){
         return 0;
     }
+
+    // optional method to start a new game
     public void startNewGame(){
         
     }
