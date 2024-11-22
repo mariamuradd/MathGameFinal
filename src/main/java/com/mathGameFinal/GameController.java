@@ -11,6 +11,7 @@ import processing.core.PConstants;
 
 // abstract class to define a common structure for all screens
 public abstract class GameController {
+    
     protected PApplet main;
 
     // constructor
@@ -23,6 +24,7 @@ public abstract class GameController {
 
     // optional method for handling key inputs
     public void keyPressed() {
+
     }
 
     // optional method for handling mouse click events
@@ -32,6 +34,7 @@ public abstract class GameController {
 
     // optional method to check if game is over
     public boolean isGameOver(){
+
         return false;
     }
 
@@ -54,4 +57,5 @@ public abstract class GameController {
     public void startNewGame(){
         
     }
+
 }

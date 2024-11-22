@@ -18,6 +18,7 @@ public class StartScreen extends GameController {
     private PImage startImage;
 
     public StartScreen(PApplet main_) {
+        
         // sets the position and size of the Start button
         super(main_);
         buttonX = 300;
@@ -28,12 +29,16 @@ public class StartScreen extends GameController {
 
     @Override
     public void setup() {
+
+        //image
         startImage = main.loadImage("src/main/resources/cartoonPic.png");
     }
 
     // display start screen
     public void display() {
+
         main.textAlign(PConstants.CENTER, PConstants.CENTER);
+
 
         // all of my title properties and color
         main.fill(0, 102, 204);
@@ -41,6 +46,7 @@ public class StartScreen extends GameController {
         String title = "Maria Masters Math";
         float startX = main.width / 2 - main.textWidth(title) / 2;
         float offsetY = main.height / 2 - 100;
+
 
         // shadow effect
         main.fill(0, 0, 50, 100);
@@ -50,6 +56,7 @@ public class StartScreen extends GameController {
             float yVariation = PApplet.sin(i * 0.3f + main.millis() * 0.004f) * 3;
             main.text(letter, offsetX + 3, offsetY + yVariation + 3);
         }
+
 
         // variation when it comes to the title
         for (int i = 0; i < title.length(); i++) {
@@ -61,6 +68,7 @@ public class StartScreen extends GameController {
             main.text(letter, offsetX, offsetY + yVariation);
         }
 
+
         // all additional shapes drawn around title w effects
         main.fill(255, 150, 200);
         drawAnimatedShape(main.width / 2 - 150, main.height / 2 - 130, 15);
@@ -71,15 +79,18 @@ public class StartScreen extends GameController {
         drawAnimatedTriangle(main.width / 2 - 100, main.height / 2 - 45, 20);
         drawAnimatedTriangle(main.width / 2 + 100, main.height / 2 - 45, 20);
 
+
         // start button
         main.fill(75, 0, 130);
         main.rect(buttonX, buttonY, buttonWidth, buttonHeight);
 
         main.fill(255, 150, 200);
 
+
         // adjust text size to fit
         float maxTextSize = 30;
         main.textSize(maxTextSize);
+
 
         // calculate the width of the text
         while (main.textWidth("Start") > buttonWidth - 10) {
@@ -93,6 +104,7 @@ public class StartScreen extends GameController {
         main.textFont(thickFont);
         main.text("Start", buttonX + buttonWidth / 2, buttonY + buttonHeight / 2);
         main.popStyle();
+
 
         // this will display the image
         if (startImage != null) {
@@ -108,6 +120,7 @@ public class StartScreen extends GameController {
         main.ellipse(x + xVariation, y + yVariation, size, size);
     }
 
+
     // triangle animations
     private void drawAnimatedTriangle(float x, float y, float size) {
         float xOffset = PApplet.sin(main.millis() * 0.002f + x * 0.1f) * 3;
@@ -117,6 +130,7 @@ public class StartScreen extends GameController {
         main.triangle(x + xOffset, y + yOffset, x + size / 2 + xOffset, y - size + yOffset, x - size / 2 + xOffset,
                 y - size + yOffset);
     }
+
 
     // checks is button is clicked so return true when it is inside the button's bounds
     @Override
@@ -128,4 +142,5 @@ public class StartScreen extends GameController {
         }
         return false;
     }
+
 }

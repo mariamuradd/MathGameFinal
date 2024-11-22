@@ -18,12 +18,14 @@ public class EndScreen extends GameController {
 
      EndScreen(PApplet main_){
         super(main_);
+
      }
 
      @Override
     public void setup() {
         startImage = main.loadImage("src/main/resources/ClapClap.png");
     }
+
 
     // sets the final score to be displayed
     @Override
@@ -32,6 +34,7 @@ public class EndScreen extends GameController {
     }
 
     // display the end screen with the final score and a restart button
+
     public void display() {
         main.pushStyle();
         main.background(255, 200, 255); 
@@ -44,6 +47,7 @@ public class EndScreen extends GameController {
         main.text("Game Over!", main.width / 2, main.height / 2 - 50);
         main.text("Final Score: " + finalScore, main.width / 2, main.height / 2);
 
+
         // draw Restart Button & properties
         main.fill(0, 255, 0);
         main.rect(main.width / 2 - 100, main.height / 2 + 50, 220, 70); 
@@ -52,12 +56,15 @@ public class EndScreen extends GameController {
         main.text("Restart", (main.width/2-100)+220/2, (main.height/2+50)+70/2);
         main.popStyle();
 
+
         // this will display the image
         if (startImage != null) {
             main.imageMode(PConstants.CENTER);
             main.image(startImage, 170, 640);
         }
+
     }
+
 
     // checks if restart button is clicked + its coordinates
     @Override
@@ -67,7 +74,9 @@ public class EndScreen extends GameController {
         int buttonX2 = main.width / 2 + 75;
         int buttonY2 = main.height / 2 + 100;
 
+        
         // check if the mouse click is within the button bounds
         return (x > buttonX1 && x < buttonX2 && y > buttonY1 && y < buttonY2);
     }
+
 }

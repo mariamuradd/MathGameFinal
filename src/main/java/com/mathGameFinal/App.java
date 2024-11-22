@@ -47,9 +47,11 @@ public class App extends PApplet {
     public void mousePressed() {
          game.handleMouseClick(mouseX, mouseY);
     }
+    
     // called whenever mouse is pressed
     public void keyPressed(){
         game.keyPressed(key);
     }
+
 
 }

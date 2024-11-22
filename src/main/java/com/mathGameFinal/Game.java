@@ -9,13 +9,16 @@ package com.mathGameFinal;
 import processing.core.PApplet;
 
 public class Game {
+
     private GameController startScreen;
     private GameController gameScreen;
     private GameController endScreen;
     private int gameState; // 0 = start, 1 = game, 2 = end
-    PApplet main;
+    PApplet main; 
 
+    //constructor
     public Game(PApplet main_) {
+
         main = main_;
         startScreen = new StartScreen(main_);
         gameScreen = new GameScreen(main_);
@@ -29,6 +32,7 @@ public class Game {
          gameScreen.setup();
          endScreen.setup();
     }
+
 
     // method to display the appropriate screen based on the current game state
     public void display() {
@@ -47,6 +51,7 @@ public class Game {
                 endScreen.display();
                 break;
         }
+
     }
 
     // method handles mouse clicks so when in start screen, click start button & when in end screen, check for restart button
@@ -58,6 +63,7 @@ public class Game {
         else if (gameState == 2 && endScreen.isButtonClicked(mouseX, mouseY)) {
             gameState = 0; // resets to start
         }
+
     }
 
     // this handles all key inputs
@@ -65,5 +71,8 @@ public class Game {
        if (gameState == 1){
         gameScreen.keyPressed();
        }
+
+       
     }
+
 }

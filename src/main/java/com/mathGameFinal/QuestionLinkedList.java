@@ -7,6 +7,7 @@
 package com.mathGameFinal;
 
 public class QuestionLinkedList {
+    
     private QuestionNode head;
     private QuestionNode tail;
 
@@ -26,6 +27,8 @@ public class QuestionLinkedList {
         }
     }
 
+
+
     // this will insert at the tail - same as insertQuestion
     public void insertAtTail(QuestionNode newNode) {
         insertQuestion(newNode);
@@ -41,6 +44,7 @@ public class QuestionLinkedList {
         }
     }
 
+
     // this will find a question by its string representation
     public QuestionNode findQuestion(String question) {
         QuestionNode current = head;
@@ -53,6 +57,7 @@ public class QuestionLinkedList {
         return null;  // will return null if the question is not found
     }
 
+
     // this will print all the questions in the linked list
     public void printQuestions() {
         QuestionNode current = head;
@@ -61,6 +66,7 @@ public class QuestionLinkedList {
             current = current.getNext();
         }
     }
+
 
     // gets the tail node
     public QuestionNode getTail() {
@@ -71,4 +77,5 @@ public class QuestionLinkedList {
     public boolean isEmpty() {
         return head == null;
     }
+
 }

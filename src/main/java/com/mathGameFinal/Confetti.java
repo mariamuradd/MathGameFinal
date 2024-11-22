@@ -14,10 +14,14 @@ public class Confetti {
     PApplet p; 
     float x, y; // position
     float vx, vy; // velocity
+    //size of confetti particle
     float size;
+    // color of confetti particle
     int c; 
+    // rotation angle + angular velocity for spinning effect
     float angle; 
     float angularVelocity; 
+    // alpha for fade out effect
     float alpha; 
 
     // constructor
@@ -25,6 +29,7 @@ public class Confetti {
         this.p = p;
         x = startX;
         y = startY;
+
         // random velocity
         vx = p.random(-2, 2); 
         vy = p.random(-7, -3); 
@@ -46,6 +51,7 @@ public class Confetti {
     }
 
     // draws rectangle shaped confetti and adds fade effect using alpha
+
     void display() {
         p.pushMatrix();
         p.translate(x, y);
@@ -58,7 +64,9 @@ public class Confetti {
     }
 
     // removes if off the top or fully faded
+
     boolean isOffScreen() {
         return y < -size || alpha <= 0; 
     }
+
 }

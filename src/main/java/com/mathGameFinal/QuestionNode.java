@@ -9,6 +9,7 @@ package com.mathGameFinal;
 import java.util.Random;
 
 public class QuestionNode {
+    
     private int operator1;
     private int operator2;
     private char operator;
@@ -22,9 +23,11 @@ public class QuestionNode {
     public QuestionNode() {
         Random random = new Random();
 
+
         // this will assign random values to operator1 and operator2
         this.operator1 =  random.nextInt(20);
         this.operator2 = random.nextInt(20);
+
 
         // this randomly choose an operator from the array
         this.operator = OPERATORS[random.nextInt(OPERATORS.length)];
@@ -51,6 +54,7 @@ public class QuestionNode {
         this.next = null;
     }
 
+
     // getters
     public int getOperator1() { return operator1; }
     public int getOperator2() { return operator2; }
@@ -58,6 +62,8 @@ public class QuestionNode {
     public int getExpectedAnswer() { return expectedAnswer; }
     public int getUserResponse() { return userResponse; }
     public QuestionNode getNext() { return next; }
+
+
 
     // setters
     public void setOperator1(int operator1) { this.operator1 = operator1; }
@@ -67,8 +73,10 @@ public class QuestionNode {
     public void setUserResponse(int userResponse) { this.userResponse = userResponse; }
     public void setNext(QuestionNode next) { this.next = next; }
 
+
     // generates a string representation of the question
     public String getQuestion() {
         return "What is " + operator1 + " " + operator + " " + operator2 + "?";
     }
+
 }

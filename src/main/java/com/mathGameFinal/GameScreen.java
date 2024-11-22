@@ -56,6 +56,7 @@ public class GameScreen extends GameController {
         confettiList = new ArrayList<Confetti>();
     }
 
+
     // resets the game
     @Override
     public void startNewGame() {
@@ -64,12 +65,14 @@ public class GameScreen extends GameController {
         userAnswer = "";
         waitingForAnswer = true;
 
+
         // clears the linked list and adds a new initial question
         questionList = new QuestionLinkedList();
         QuestionNode initialQuestion = new QuestionNode();
         questionList.insertQuestion(initialQuestion);
         currentQuestion = questionList.getTail();
     }
+
 
     // displays the game screen with the current question and score
     public void display() {
@@ -80,16 +83,19 @@ public class GameScreen extends GameController {
         main.textSize(32);
         main.textAlign(PConstants.CENTER, PConstants.CENTER);
 
+
         // define the texts
         String questionText = "Solve: " + currentQuestion.getOperator1() + " " + currentQuestion.getOperator() + " "
                 + currentQuestion.getOperator2() + " = ?";
         String scoreText = "Score: " + score;
         String answerText = "Your answer: " + userAnswer;
 
+
         // define text positions
         float questionY = main.height / 2 - 100;
         float scoreY = main.height / 2 - 50;
         float answerY = main.height / 2 - 5;
+
 
         // calculate the rectangle dimensions
         float rectX = main.width / 2;
@@ -104,6 +110,7 @@ public class GameScreen extends GameController {
                 main.textWidth(questionText),
                 Math.max(main.textWidth(scoreText), main.textWidth(answerText))) + 60;
 
+                
         // isolate rectangle settings
         main.pushStyle();
         main.rectMode(PConstants.CENTER);
@@ -111,6 +118,7 @@ public class GameScreen extends GameController {
         main.noStroke();
         main.rect(rectX, rectY, rectWidth, rectHeight);
         main.popStyle();
+
 
         // draws the texts'
         // loads thicker font
@@ -123,6 +131,7 @@ public class GameScreen extends GameController {
         main.text(scoreText, main.width / 2, scoreY);
         main.text(answerText, main.width / 2, answerY);
         main.popStyle();
+
 
         // this will display the image
         if (startImage != null) {
@@ -138,6 +147,7 @@ public class GameScreen extends GameController {
         }
 
     }
+
 
     // will display confetti
     public void showConfetti() {
@@ -172,6 +182,7 @@ public class GameScreen extends GameController {
         } else {
             userAnswer += main.key;
         }
+
     }
 
     // checks if user answer is correct then will change background to a new random color & move to the next question
@@ -210,17 +221,21 @@ public class GameScreen extends GameController {
             gameOver = true;
             // this exception will only be handled if the answer is not a valid integer
         }
+
     }
 
     // checks if game is over
     @Override
     public boolean isGameOver() {
+
         return gameOver;
     }
 
     // gets the current score of the user
     @Override
     public int getScore() {
+
         return score;
     }
+
 }
