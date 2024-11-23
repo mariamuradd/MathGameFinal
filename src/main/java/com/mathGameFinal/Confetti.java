@@ -41,6 +41,7 @@ public class Confetti {
     }
 
     // updates horizontal and vertical positions + rotation
+    
     void update() {
         x += vx; 
         y += vy; 
